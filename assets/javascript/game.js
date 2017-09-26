@@ -1,14 +1,51 @@
-// vars target crys1 crys2 crys3 crys4 score
-// obj. keys-> wins losses
-// reset()
-// score 0
-// new target (ceil random*102) + 18
-// rerandom crystal value ceil random * 12
-// updatewinloss()
-// update wins
-// update losses
-// on click
-// add value to score
-// if score < t update score
-// if score = t obj.wins++ reset()
-// if score > t obj.losses++ reset()
+var target = 0;
+var score = 0;
+var crystals = [];
+var stats = {
+  wins: 0,
+  losses: 0
+}
+
+function reset() {
+  target = Math.ceil(Math.random() * 102) + 18;
+  updateTarget();
+  score = 0;
+  updateScore();
+  crystals = [];
+  for (var i = 0; i < 4; i++) {
+    crystals.push(Math.ceil(Math.random() * 12));
+  }
+}
+
+function updateTarget() {
+  $("#target").html(target);
+}
+
+function updateWinLoss() {
+  $("#wins").html(stats.wins);
+  $("#losses").html(stats.losses);
+}
+
+function updateScore() {
+  $("#score").html(score);
+}
+
+$("button").on("click", function() {
+  var add = crystals[$(this).attr("value")];
+  score = score + add;
+  updateScore();
+
+  if (score === target) {
+    stats.wins++;
+    updateWinLoss();
+    reset();
+  }
+
+  if (score > target) {
+    stats.losses++;
+    updateWinLoss();
+    reset();
+  }
+})
+
+reset();

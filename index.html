@@ -7,21 +7,34 @@
 <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
 <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
 
 <body>
-  <h1>Crystal Collector</h1>
-
-  
-
-
-  <div id="footer">
+  <div class="header" class="nav nav-tabs" role="navigation">
     <div class="container">
-      please don't steal this
+      <ul class="nav navbar-nav navbar-right" class="navmenu">
+        <li><a href="#doesntworkyet"><p class="navtext">Back to Portfolio</p></a></li>
+      </ul>
     </div>
   </div>
 
-
+  <div class="container">
+    <h1>Crystal Collector</h1><br>
+    <h4>You will be given a random target number at the beginning of the game.</h4>
+    <h4>There are four crystals below. By clicking a crystal you will add a specific amount to your total score.</h4>
+    <h4>You win the game by matching your total score to the target score. You lose the game if your total score goes over the target score.</h4>
+    <h4>The value of each crystal is hidden from you until you click it.</h4>
+    <h4>Each time a new game starts, the game will change the value of each crystal.</h4><br>
+  
+    <h2>Target: <span id="target"></span></h2><br>
+    <h2>Wins: <span id="wins"></span> | Losses: <span id="losses"></span></h2><br>
+    <button id="button1" value="0"><img src="assets/images/crys1.jpg"></button>
+    <button id="button2" value="1"><img src="assets/images/crys2.jpg"></button>
+    <button id="button3" value="2"><img src="assets/images/crys3.jpg"></button>
+    <button id="button4" value="3"><img src="assets/images/crys4.jpg"></button>
+    <h2>Score: <span id="score">0</span></h2>
+  </div>
 
   <script src="assets/javascript/game.js"></script>
 
